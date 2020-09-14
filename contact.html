@@ -1,0 +1,209 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+	
+        const api_url ="https://api.rootnet.in/covid19-in/contacts"; 
+  
+// Defining async function 
+async function getapi(url) { 
+    
+    // Storing response 
+    const response = await fetch(url); 
+    
+    // Storing data in form of JSON 
+    var data = await response.json(); 
+    console.log(data); 
+  if (response.ok) { 
+      hideloader(); 
+    } 
+    show(data); 
+} 
+// Calling that async function 
+getapi(api_url); 
+  
+// Function to hide the loader 
+function hideloader() { 
+    document.getElementById('loading').style.display = 'none'; 
+} 
+// Function to define innerHTML for HTML table 
+function show(data) { 
+       
+      let tab =  
+        `<tr> 
+          <th>State Name</th> 
+          <th>Helpline Number</th>
+         </tr>`; 
+    
+    // Loop to access all rows  
+    for (let r of data.data.contacts.regional) { 
+        tab += `<tr>  
+    <td>${r.loc} </td> 
+    <td>${r.number}</td>           
+</tr>`; 
+    } 
+	
+    // Setting innerHTML as tab variable 
+    document.getElementById("contact").innerHTML = tab; 
+} </script>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("contact");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+	<script src="script.js"></script>
+        <title>Contacts</title> 
+	<style>
+	#contact {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+#contact td, #contact th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#contact tr:nth-child(even){background-color: #f2f2f2;}
+
+#contact tr:hover {background-color: #ddd;}
+
+#contact th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #191970;
+  color: white;
+}
+img {
+  display: inline-block;
+  float:left;
+  padding-top:5px;
+  padding-bottom:5px;
+  padding-right:25px;
+  padding-left:5px;
+}
+.top{
+padding-top:42px;
+
+}
+.number{
+border:5px solid #4B0082;
+background-color:#00BFFF;
+}
+#num ,#toll,#email ,#twitter,#facebook ,#media{
+font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+text-align:center;
+padding-top:5px;
+padding-bottom:5.5px;
+  padding-right:25px;
+  color:#191970;
+}
+#myInput {
+   float:right;
+  padding:6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  border: none;
+  font-size: 17px;
+  
+}
+.S{
+padding-right:50px;
+}
+header{
+	color:white;
+	height:50px;
+	background-color:#00BFFF;
+	width:100%;
+    position:fixed;
+  	top:0px;
+  	
+	 }
+
+.header-left{
+	font-family:"rockwell";
+	font-size:30px;
+	padding:10px 48px;
+	float:left;
+	opacity:0.8;
+}
+
+	</style>
+    </head> 
+    <body> 
+        <!-- Here a loader is created which  
+             loads till response comes -->
+	<header>
+	<div class="header-left">Contacts: </div>
+	<div class="S">
+	<input id="myInput" type="text" onkeyup="myFunction()" placeholder="Search State Name..">
+	</div>
+</header> 
+
+<div class="top">
+	<img src="images.png" >
+	
+         
+            <script>
+         var settings = {
+           "async": true,
+           "crossDomain": true,
+           "url": "https://api.rootnet.in/covid19-in/contacts",
+           "method": "GET"
+         }
+
+         $.ajax(settings).done(function (response) {
+           console.log(response);
+
+           var content = response.data.contacts.primary.number;
+           $("#num").append(content);
+		  
+		  var mail=response.data.contacts.primary.email;
+		  $("#email").append(mail);
+		  var twi=response.data.contacts.primary.twitter;
+		  $("#twitter").append(twi);
+		  var fb=response.data.contacts.primary.facebook;
+		  $("#facebook").append(fb);
+          var media=response.data.contacts.primary.media[0];
+		  $("#media").append(media);
+         }); 
+         
+    </script> 
+        <div class="d-flex justify-content-center"> 
+            <div class="spinner-border" 
+                 role="status" id="loading"> 
+               <span class="sr-only">Loading...</span> 
+            </div> 
+        </div> 
+		<div class="number">
+		<div id="num">Number: </div>
+		<div id="toll">Number-TollFree: 1075 </div>
+		<div id="email">Email: </div>
+		<div id="twitter">Twitter: </div>
+		<div id="facebook">Facebook: </div>
+		<div id="media">Media: </div>
+	 </div>
+	 </div>
+        <!-- table for showing data -->
+        <table id="contact"></table> 
+    </body> 
+	</html>

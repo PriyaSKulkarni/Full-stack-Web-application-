@@ -1,0 +1,148 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+    <head> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+	
+        const api_url ="https://api.rootnet.in/covid19-in/notifications"; 
+  
+// Defining async function 
+async function getapi(url) { 
+    
+    // Storing response 
+    const response = await fetch(url); 
+    
+    // Storing data in form of JSON 
+    var data = await response.json(); 
+    //console.log(data); 
+  if (response.ok) { 
+      hideloader(); 
+    } 
+    show(data); 
+} 
+// Calling that async function 
+getapi(api_url); 
+  
+// Function to hide the loader 
+function hideloader() { 
+    document.getElementById('loading').style.display = 'none'; 
+} 
+// Function to define innerHTML for HTML table 
+function show(data) { 
+    let tab =  
+        `<tr> 
+          <th>Notification Title</th> 
+          <th>Link</th>
+         </tr>`; 
+    
+    // Loop to access all rows  
+    for (let r of data.data.notifications) { 
+        tab += `<tr>  
+    <td>${r.title} </td> 
+    <td><a href=${r.link}>${r.link}</a></td>           
+</tr>`; 
+    } 
+    // Setting innerHTML as tab variable 
+    document.getElementById("notific").innerHTML = tab; 
+} </script>
+
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("notific");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+	<script src="script.js"></script>
+        <title>Notifications</title> 
+     	<style>
+	#notific {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+#notific td, #notific th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#notific tr:nth-child(even){background-color: #f2f2f2;}
+
+#notific tr:hover {background-color: #ddd;}
+
+#notific th {
+  padding-top: 60px;
+  padding-bottom: 12px;
+  background-color: #191970;
+  color: white;
+}
+
+#myInput {
+   float:right;
+  padding:6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  border: none;
+  font-size: 17px;
+  
+}
+.S{
+padding-right:50px;
+}
+header{
+	color:white;
+	height:50px;
+	background-color:#00BFFF;
+	width:100%;
+    position:fixed;
+  	top:0px;
+  	
+	 }
+
+.header-left{
+	font-family:"rockwell";
+	font-size:30px;
+	padding:10px 48px;
+	float:left;
+	opacity:0.8;
+}
+</style>
+    </head> 
+    <body> 
+        <!-- Here a loader is created which  
+             loads till response comes -->
+			 
+			 <header>
+	<div class="header-left">Notifications & Advisories:</div>
+	<div class="S">
+	<input id="myInput" type="text" onkeyup="myFunction()" placeholder="Search Notification Title..">
+	</div>
+</header> 
+        
+			 
+        <div class="d-flex justify-content-center"> 
+            <div class="spinner-border" 
+                 role="status" id="loading"> 
+               <span class="sr-only">Loading...</span> 
+            </div> 
+        </div> 
+		
+        <table id="notific"></table> 
+    </body> 
+</html> 

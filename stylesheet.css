@@ -1,0 +1,271 @@
+.header-right li{
+list-style:none;
+float:left;
+padding-top:5px;
+padding-left:50px;
+}
+
+header{
+	color:white;
+	height:65px;
+	background-color:#191970;
+	width:100%;
+    position:fixed;
+  	top:0px;
+  	
+	 }
+
+.header-left{
+	font-family:"rockwell";
+	font-size:30px;
+	padding:10px 48px;
+	float:left;
+	opacity:0.8;
+}
+
+.header-right a{
+	font-family:"rockwell";	
+	text-decoration: none;
+	color:white;
+	display:block;
+	margin:0;
+	opacity:0.8;
+}
+.header-log{
+	float:right;
+	padding-right:10px;
+}
+
+
+.header-log a{
+  line-height:30px;
+  padding-left:20px;
+  padding-right:25px;
+  color:white;
+  display:block;
+  text-decoration: none;
+  opacity:0.8;
+}
+
+.container{
+	width:100%;
+	margin:0 auto;
+	
+}
+.con{
+	width:100%;
+	margin:0 auto;
+}
+
+.container img{
+	float:right;
+	width:615px;
+}
+.main-content{
+	 padding: 100px 0px 100px 0px;
+	  background-size: cover;
+	  color:#191970;
+	  text-align: center;
+	  background-color:#A2B3FB;
+}
+.main{
+padding: 90px 0px 90px 0px;
+	  background-size: cover;
+	  color:#191970;
+	  text-align: center;
+	  background-color:#A2B3FB;	
+}
+.main img{
+	float:right;
+width:500px;}
+
+.main-content h1,h4{
+	opacity: 0.8;
+  	font-size: 45px;
+ 	 margin-left: 15px;
+	  margin-right: 15px;
+	  font-family:"rockwell";	
+}
+
+.main-content p{
+	opacity:0.7;
+	margin-bottom:3px;
+	line-height:1px;
+	 margin-left: 15px;
+	  margin-right: 15px;
+	  font-family:"rockwell";	
+	  font-weight:bold;
+	  font-size:25px;
+}
+
+.btn-wrapper {
+ 	 margin-top:50px;
+	margin-bottom:20px;
+}
+.btn-wrapper a{
+	text-decoration: none;
+}
+
+.signup {
+  background-color: #33B93B;
+}
+
+.btn {
+  padding: 12px 24px;
+  color: white;
+  display: inline-block;
+  opacity: 0.8;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.workouts{
+	float:left;
+	padding:10px 10px;
+	
+
+	
+}
+.workout{
+  float:left;
+  width:25%;
+  padding-top:20px;
+	padding-bottom:10px;
+	padding-right:20px;
+	padding-left:20px;
+ 
+}
+
+.workout-icon p{
+	color:black;
+	text-align:right;
+	display:block;
+	font-family:"verdana";
+	width:50%;
+	float:left;
+	text-align:center;
+}
+
+.wrapper {
+  height: 400px;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+.wrapper2 {
+  height: 600px;
+  background-color: #f7f7f7;
+  text-align: center;
+}
+
+.wrapper1 {
+  height: 450px;
+  background-color: #f7f7f7;
+  
+}
+.wrapper1 li{
+	list-style:none;
+padding-top:30px;
+padding-left:10px;
+
+}
+
+.head-top h2{
+	font-size:32px;
+	font-family:"engravers mt";
+	opacity:0.8;
+}
+
+.head-top h3{
+	font-size:20px;
+	font-family:"baskerville old face";
+	letter-spacing:4px;
+	
+}
+
+footer{
+	background-color:#191970;
+	height:65px;
+	width:100%;
+}
+
+.footer-left p{
+	font-family:"mistral";
+	font-size:20px;
+	color:white;
+	padding-left:15px;
+	float:left;
+	opacity:0.9;
+	opacity:0.8;
+}
+
+.footer-end {
+	color:white;
+	padding-left:200px;
+	padding-top:20px;
+	float:left;
+	opacity:0.8;
+	}
+
+.footer-right{
+	color:white;
+	font-size:20px;
+	padding-top:20px;
+	padding-right:30px;
+	font-family:"eras demi itc";
+	letter-spacing:6px;
+	float:right;
+	opacity:0.8;
+}
+
+marquee{
+	font-size:18px;
+	letter-spacing:4px;
+	font-family:"monotype corsiva";
+	color:blue;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
