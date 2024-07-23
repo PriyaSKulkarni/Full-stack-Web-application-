@@ -1,5 +1,5 @@
 # Full-Stack Web Application
-
+ 
 ## Overview
 This web application provides essential information and services related to health and safety. The website includes the following key sections:
 
